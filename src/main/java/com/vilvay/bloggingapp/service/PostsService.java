@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface PostsService {
 
-    public PostsDTO createPosts(PostsDTO request);
+    public PostsDTO savePosts(PostsDTO request);
 
     public List<PostsDTO> getAllPostsByAuthorId(int id);
 

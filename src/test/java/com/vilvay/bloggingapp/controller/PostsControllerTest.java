@@ -36,13 +36,13 @@ class PostsControllerTest {
     @Test
     void testCreatePost() {
         PostsDTO postsDTO = new PostsDTO();
-        when(postsService.createPosts(any(PostsDTO.class)))
+        when(postsService.savePosts(any(PostsDTO.class)))
                 .thenReturn(new PostsDTO());
 
         ResponseEntity<PostsDTO> response = postsController.createPost(postsDTO);
 
         verify(postsService, times(1))
-                .createPosts(any(PostsDTO.class));
+                .savePosts(any(PostsDTO.class));
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
     }
 

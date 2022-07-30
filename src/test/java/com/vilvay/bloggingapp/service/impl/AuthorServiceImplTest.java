@@ -41,7 +41,7 @@ class AuthorServiceImplTest {
     AuthorServiceImpl authorServiceImpl;
 
     @Test
-    void saveAuthorSuccessTest() {
+    void testSaveAuthorSuccessTest() {
         AuthorDTO authorDTO = composeAuthorDTO();
         Author author = composeAuthorEntity(authorDTO);
         when(authorRepository.save(any(Author.class))).thenReturn(author);
@@ -54,7 +54,6 @@ class AuthorServiceImplTest {
     void testGetAllAuthors() {
         when(authorRepository.findAll()).thenReturn(getAllAuthorsList());
         List<AuthorDTO> authorDTOs = authorServiceImpl.getAllAuthors();
-        verify(authorRepository, times(1));
         assertEquals(AUTHOR_ID, authorDTOs.get(0).getId());
     }
 

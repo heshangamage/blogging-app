@@ -28,7 +28,7 @@ public class PostServiceImpl implements PostsService {
 
 
     @Override
-    public PostsDTO createPosts(PostsDTO request) {
+    public PostsDTO savePosts(PostsDTO request) {
         request.setCreatedOn(Instant.now());
         request.setModifiedOn(Instant.now());
         Posts postsRequest = mapStructPostsMapper.postsDtoToEntity(request);
