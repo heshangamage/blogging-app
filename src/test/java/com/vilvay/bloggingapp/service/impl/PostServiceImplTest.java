@@ -1,13 +1,9 @@
 package com.vilvay.bloggingapp.service.impl;
 
-import com.vilvay.bloggingapp.dtos.AuthorDTO;
 import com.vilvay.bloggingapp.dtos.PostsDTO;
 import com.vilvay.bloggingapp.entity.Author;
 import com.vilvay.bloggingapp.entity.Posts;
-import com.vilvay.bloggingapp.exception.ResourceNotFoundException;
-import com.vilvay.bloggingapp.repository.AuthorRepository;
 import com.vilvay.bloggingapp.repository.PostsRepository;
-import com.vilvay.bloggingapp.util.mapper.MapStructAuthorMapper;
 import com.vilvay.bloggingapp.util.mapper.MapStructPostsMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -24,7 +20,6 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -45,7 +40,7 @@ class PostServiceImplTest {
     PostServiceImpl postServiceImpl;
 
     @Test
-    void testSaveAuthorSuccessTest() {
+    void testSavePostSuccessTest() {
         PostsDTO postsDTO = composeAuthorDTO();
         Posts posts = composePostEntity(postsDTO);
         when(postsRepository.save(any(Posts.class))).thenReturn(posts);
@@ -61,7 +56,7 @@ class PostServiceImplTest {
         assertEquals(POST_ID, resultDto.getId());
     }
 
-    private List<Author> getAllAuthorsList() {
+    private List<Author> getAllPostsList() {
         List<Author> authorList = new ArrayList<>();
         authorList.add(new Author(1, "some author 1", "some user name 1", "some email 1", "some address 1", "some password 1", "some role 1"));
         authorList.add(new Author(2, "some author 2", "some user name 2", "some email 2", "some address 2", "some password 2", "some role 2"));
